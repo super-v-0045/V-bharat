@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-text-color:#183b56;
+    --secondary-text-color:#577592;
+    --accent-color:#2294ed;
+    --accent-color-dark:#1d69a3;
+    
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+    color:var(--primary-text-color);
+}
+p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+a{
+    text-decoration: none;
+}
+ul {
+    list-style : none;
+}
+.flex{
+    display:flex;
+    
+    align-items: center;
+    flex-wrap: wrap;
+}
+#homeicon{
+    align-items: center;
+}
+.container{
+    max-width:1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+nav {
+    background-color: #f3faff;
+    box-shadow:0 0 4px #0bbde2;
+    color: yellow;
+    position: fixed;
+    top:0;
+    z-index: 99;
+    left:0;
+    right :0;
+}
+b:hover{
+    color: yellowgreen;
+}
+.main-nav{
+    justify-content: space-between;
+    padding:8px 0px;
+}
+.company-logo img {
+    width: 150px;
+}
+.nav-links ul {
+    gap:16px;
+}
+.hoverlink{
+    cursor:pointer;
+}
+.hoverlink:hover{
+    color:var(--secondary-text-color);
+}
+.hoverlink:active{
+    color: red;
+}
+.search-bar{
+    height:32px;
+    gap:8px;
+}
+.news-input{
+    width:200px;
+    height:100%;
+    padding-inline:12px ;
+    border-radius: 4xp;
+    border:2px solid #bbd0e2;
+}
+
+.search{
+    background-color: var(--accent-color);
+    color: white;
+    border:none;
+    padding:8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.search:hover{
+    background-color: var(--accent-color-dark);
+}
+main{
+    padding-block:20px;
+    margin-top: 130px;
+    
+}
+.cards-container{
+    justify-content: space-between;
+    flex-wrap:wrap ;
+    row-gap: 20px;
+    align-items: start;
+}
+.card{
+    width: 360px;
+    height: 300px;
+    box-shadow: 0px 0px 4px #d4ecff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #d7ee06;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    width: 400px;
+    height:auto;
+    z-index: 1;
+    box-shadow: 1px 1px 8px #d4ecff;
+    background-color: #e2fb07;
+    font-weight: bolder;
+    transform: translateY(-2px);
+}
+.card-header img {
+    width:100%;
+    height:180px;
+    object-fit: cover;
+}
+.card-content{
+    padding: 12px;
+}
+
+.nes-source{
+    margin-block: 12px;
+}
+.nav-item.activve{
+    color: var(--accent-color);
+}
+#cricket {
+    
+    font:20px normal;
+  }
+ #cricket:hover {
+    
+    font:35px bold;
+  }
+#finance {
+    
+    font:20px normal;
+  }
+ #finance:hover {
+    
+    font:35px bold;
+  }
+#politics {
+    
+    font:20px normal;
+  }
+ #politics:hover {
+    
+    font:35px bold;
+  }

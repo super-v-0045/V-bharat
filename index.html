@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="channels4_profile.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>V bharat news</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="Styles.css">
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<body style="background-color: rgba(116, 115, 115, 0.934);">
+    <header><nav style="background-color: rgb(10, 10, 10); ">
+        <marquee behavior="slide" direction="" style="background-color: red;padding: 0px; font-size: 20px; font-weight: bold;" ><a href="https://www.youtube.com/@vbharatnews18"> <h1 style="color: black;">News Channel on Youtube</h1></a></marquee>
+        <div class="main-nav container flex">
+            <a class="company-logo" href="# " onclick="reload()">
+                <img src="channels4_profile.jpg" alt="logo" style="height: 10vh;">
+            </a>
+            <br> 
+            <!-- <a href="index.html"  id="homeicon"><i class="fa-solid fa-house-chimney"></i></a> -->
+            <div class="nav-links ">
+                <ul class="flex">
+                    <li class="hoverlink nav-item" id="politics" onclick="onNavItemClick('politics')"><b>Politics</b></li>
+                    <li class="hoverlink nav-item " id="finance" onclick="onNavItemClick('finance')"><b>Economy</b></li>
+                    <li class="hoverlink nav-item" id="cricket" onclick="onNavItemClick('sports')"><b>Sports</b></li>
+                    <li class="hoverlink nav-item" id="cricket" onclick="onNavItemClick('technology')"><b>Technology</b></li>
+                    <li class="hoverlink nav-item" id="cricket" onclick="onNavItemClick('defence')"><b>Defence</b></li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" id="newsQuery" placeholder="Search news">
+                    <button class="btn btn-outline-warning" type="button" id="searchBtn" onclick="search()">Search</button>
+                </form>
+            </div>
+            <br>
+    </div>
+   
+    </nav></header>
+    
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+        
+        </div>
+    </main>
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="" alt="news" id="news-img">
+                <div class="card-content">
+                    <h3 id="news-title">This is the Title</h3>
+                    <h6 class="news-source" id="news-source">End gadget 26/08/2023</h6>
+                    <p class="news-disc" id="news-desc">xyz</p>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>
