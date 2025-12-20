@@ -3,10 +3,26 @@ const url="https://newsapi.org/v2/everything?q=";
 
 window.addEventListener('load',()=>fetchNews("India"));
 async function fetchNews(query){
-    const res=await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data=await res.json();
-    console.log(data);
-    bindData(data.articles);
+    try {
+        const res=await fetch(`${url}${query}&apiKey=${API_KEY}`);
+        if (!res.ok) {
+            if (res.status === 426) {
+                throw new Error('NewsAPI requires HTTPS. Please serve this page over HTTPS or use a local server with SSL.');
+            } else {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+        }
+        const data=await res.json();
+        console.log(data);
+        if (data.articles) {
+            bindData(data.articles);
+        } else {
+            console.error('No articles found in response');
+        }
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        alert(error.message); // Display user-friendly message
+    }
 }
 function reload(){
     window.location.reload();
@@ -33,12 +49,12 @@ function fillDataInCard(cardClone,article){
 
     newsImage.src = article.urlToImage;
     newsTitle.innerHTML = article.title;
-    newsDiscription.innerHTML =article.description
+    newsDiscription.innerHTML = article.description;
 
     const date=new Date(article.publishedAt).toLocaleString("en-US", {
         timeZone: "Asia/Jakarta",
     });
-    newsSource.innerHTML=`$(article.source.name) . $(date)`;
+    newsSource.innerHTML=`${article.source.name} . ${date}`;
     cardClone.firstElementChild.addEventListener('click',()=>{
         window.open(article.url,"_blank")
     })
@@ -48,8 +64,9 @@ let currSelectedNav=null;
 function onNavItemClick(id){
     fetchNews(id);
     const navitem=document.getElementById(id);
-    currSelectedNav?.classlist.remove('active');
-    currSelectedNav.classlist.add('active');
+    currSelectedNav?.classList.remove('active');
+    currSelectedNav = navitem;
+    currSelectedNav.classList.add('active');
 }
 function search(){
     var search = document.getElementById("newsQuery").value;
@@ -57,21 +74,21 @@ function search(){
 
 
     fetchNews(search);
-    const navitem=document.getElementById(id);
-    currSelectedNav?.classlist.remove('active');
-    currSelectedNav.classlist.add('active');
+    currSelectedNav?.classList.remove('active');
+    currSelectedNav = null;
 }
 
 
-const searchButton=document.getElementById("search-button");
-const searchText=document.getElementById("search-text");
+document.addEventListener('DOMContentLoaded', () => {
+    const searchButton=document.getElementById("searchBtn");
+    const searchText=document.getElementById("newsQuery");
 
+    searchButton.addEventListener('click',()=>{
+        const query = searchText.value;
+        if(!query) return;
 
-searchButton.addEventListener('click',()=>{
-    const query = searchText.value;
-    if(!query) return; 
-
-    fetchNews(query);
-    currSelectedNav?.classlist.remove('active');
-    currSelectedNav=null;
-}) 
+        fetchNews(query);
+        currSelectedNav?.classList.remove('active');
+        currSelectedNav=null;
+    });
+});
